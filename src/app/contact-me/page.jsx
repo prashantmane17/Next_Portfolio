@@ -1,20 +1,44 @@
 "use client"
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
-const page = () => {
+const Page = () => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [particles, setParticles] = useState([]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+      const handleResize = () => {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      };
+
+      handleResize(); // Set initial size
+      window.addEventListener('resize', handleResize);
+
+      // Cleanup listener on unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
     }
   }, []);
+
+  // Create particles after window size is available
+  useEffect(() => {
+    if (windowSize.width > 0 && windowSize.height > 0) {
+      const newParticles = [...Array(20)].map(() => ({
+        x: Math.random() * windowSize.width,
+        y: Math.random() * windowSize.height,
+        delay: Math.random() * 5,
+        duration: 2 + Math.random() * 3,
+      }));
+      setParticles(newParticles);
+    }
+  }, [windowSize]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
       {/* Animated background shapes */}
@@ -87,7 +111,7 @@ const page = () => {
             <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
               <Image
                 src="/placeholder.svg"
-                alt="Your Name"
+                alt="Prashant"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-full"
@@ -110,22 +134,22 @@ const page = () => {
       </div>
 
       {/* Floating particles */}
-      {[...Array(20)].map((_, index) => (
+      {particles.map((particle, index) => (
         <motion.div
           key={index}
           className="absolute w-2 h-2 bg-white rounded-full"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: particle.x,
+            y: particle.y,
           }}
           animate={{
-            y: [0, -20, 0],
+            y: [particle.y, particle.y - 20, particle.y],
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: 2 + Math.random() * 3,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 5,
+            delay: particle.delay,
           }}
         />
       ))}
@@ -133,4 +157,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -4,7 +4,7 @@ import React from 'react'
 export default function Nav() {
   return (
     <>
-      <nav class="block w-full w-screen-lg px-4 py-2 mx-auto text-white bg-slate-900 shadow-md  lg:px-8 lg:py-3 ">
+      <nav class="block fixed w-full w-screen-lg px-4 py-2 mx-auto text-white bg-slate-900 shadow-md  lg:px-8 lg:py-3 ">
   <div class="container flex flex-wrap items-center justify-between mx-auto text-gray-100">
     <Link href="#"
       class="mr-4 block cursor-pointer py-1.5 text-base text-gray-200 font-semibold">
