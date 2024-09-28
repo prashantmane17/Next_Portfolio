@@ -1,6 +1,7 @@
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: "Portfolio",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
       <body>
         <Nav/>
         {children}
+        <SpeedInsights />
         {/* <Footer/> */}
       </body>
     </html>
