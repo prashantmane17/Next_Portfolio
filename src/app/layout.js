@@ -1,7 +1,8 @@
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ThemeProvider } from "next-themes";
 
 export const metadata = {
   title: "Portfolio",
@@ -12,10 +13,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Nav/>
-        {children}
-        <SpeedInsights />
-        {/* <Footer/> */}
+        <ThemeProvider attribute="class">  {/* Enables dark mode */}
+          <Nav />
+          {children}
+          <SpeedInsights />
+          {/* <Footer /> */}
+        </ThemeProvider>
       </body>
     </html>
   );

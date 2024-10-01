@@ -2,11 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light mode styles */
 .home_bg {
   background: linear-gradient(
     74deg,
     rgba(227, 225, 47, 1) 0%,
     rgba(255, 255, 255, 1) 35%
+  );
+}
+.aboutBG{
+  background: linear-gradient(270deg, #ffee77 1%, #ffffff 35%);
+}
+/* Dark mode styles */
+.dark .home_bg {
+  background: linear-gradient(
+    74deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(33, 33, 33, 1) 35%
   );
 }
 
