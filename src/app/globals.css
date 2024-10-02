@@ -10,7 +10,7 @@
     rgba(255, 255, 255, 1) 35%
   );
 }
-.aboutBG{
+.aboutBG {
   background: linear-gradient(270deg, #ffee77 1%, #ffffff 35%);
 }
 /* Dark mode styles */
@@ -43,3 +43,6 @@
     transform: translateY(0px);
   }
 }
+
+
+

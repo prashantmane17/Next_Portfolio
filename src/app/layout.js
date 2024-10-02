@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ThemeProvider attribute="class">  {/* Enables dark mode */}
-          <Nav />
+          {/* <Nav /> */}
           {children}
           <SpeedInsights />
           {/* <Footer /> */}

@@ -42,6 +42,13 @@ export default function Nav() {
               </li>
 
               <li className="flex items-center p-1 text-sm gap-x-2 ">
+                <Link href="#about-me" className="flex items-center relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[2px] after:content-[''] after:bg-yellow-400">
+                  About 
+                </Link>
+              </li>
+
+
+              <li className="flex items-center p-1 text-sm gap-x-2 ">
                 <Link href="#" className="flex items-center relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[2px] after:content-[''] after:bg-yellow-400">
                   Projects
                 </Link>
