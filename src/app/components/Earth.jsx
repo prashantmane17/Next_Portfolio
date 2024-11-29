@@ -59,10 +59,10 @@ export default function Scene() {
       <ambientLight intensity={0.3} />
       {/* Directional light */}
       <directionalLight position={[5, 5, 5]} intensity={1} />
-      
+
       {/* Earth model */}
       <Earth />
-      
+
       {/* Stars in the background */}
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade />
 
